@@ -1,4 +1,3 @@
-from enum import Enum
 import datetime
 
 Color = {0: 'white', 1: 'red', 2: 'green', 3: 'blue'}
@@ -38,5 +37,3 @@ class Cell:
         self.color = 'white'
 
 
-c = Cell('lala')
-print(c.get_value())
