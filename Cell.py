@@ -34,6 +34,5 @@ class Cell:
 
     def reset(self):
         self.value = ''
-        self.color = 'white'
-
+        self.color = Color.get(0)
 
