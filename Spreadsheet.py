@@ -2,11 +2,11 @@ import Cell
 
 
 class Spreadsheet:
-    def __init__(self, row: int, col: int):
-        self.row = row
-        self.col = col
+    def __init__(self, rows: int, cols: int):
+        self.rows = rows
+        self.cols = cols
         c = Cell.Cell()
-        self.mCells = [[c for i in range(row)] for j in range(col)]
+        self.mCells = [[c for _ in range(cols)] for _ in range(rows)]
 
     def get_cell_at(self, row, col):
         return self.mCells[row][col]
@@ -16,7 +16,7 @@ class Spreadsheet:
 
     def add_row(self, row):
         c = Cell.Cell()
-        added_row = self.col * [c]
+        added_row = self.cols * [c]
         self.mCells.insert(row, added_row)
         return self.mCells
 
@@ -26,12 +26,12 @@ class Spreadsheet:
 
     def add_col(self, column):
         c = Cell.Cell()
-        for i in range (self.row):
+        for i in range(self.rows):
             self.mCells[i].insert(column, c)
         return self.mCells
 
     def remove_col(self, col):
-        for i in range (self.row):
+        for i in range(self.rows):
             del self.mCells[i][col]
         return self.mCells
 
@@ -40,8 +40,6 @@ class Spreadsheet:
         return self.mCells
 
     def swap_cols(self, col, other_col):
-        self.mCells[col], self.mCells[other_col] = self.mCells[other_col], self.mCells[col]
+        for i in range(self.rows):
+            self.mCells[i][col], self.mCells[i][other_col] = self.mCells[i][other_col], self.mCells[i][col]
         return self.mCells
-
-
-
