@@ -1,13 +1,10 @@
 import datetime
-
-
-Color = {0: 'white', 1: 'red', 2: 'green', 3: 'blue'}
-
+import Colors
 
 class Cell:
-    def __init__(self, value="", color=0):
+    def __init__(self, value="", color_nb=0):
         self.value = value
-        self.color = Color.get(color)
+        self.color = Colors.Colors(color_nb).name
 
     def get_value(self):
         return self.value
@@ -18,8 +15,8 @@ class Cell:
     def get_color(self):
         return self.color
 
-    def set_color(self, color):
-        self.color = Color.get(color)
+    def set_color(self, color_nb):
+        self.color = Colors.Colors(color_nb).name
 
     def to_int(self):
         try:
@@ -41,4 +38,7 @@ class Cell:
 
     def reset(self):
         self.value = ''
-        self.color = Color.get(0)
+        self.color = Colors.Colors(0).name
+
+
+
